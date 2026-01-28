@@ -8,7 +8,7 @@ class LinkedList:
         self.head = None
         self.tail = None
 
-    def read(self):
+    def read_list(self):
         current = self.head
         while current is not self.tail:
             print(f'{current.value}\n| ')
@@ -23,6 +23,14 @@ class LinkedList:
         else:
             self.tail.next_node_ref = new_node
             self.tail = new_node
+    
+    def search(self, value):
+        current = self.head
+        while current is not None:
+            if current.value == value:
+                return current
+            current = current.next_node_ref
+        return None
     
     def find_last_but_one(self):
         if self.head is None or self.head.next_node_ref is None:
@@ -69,4 +77,4 @@ lisst.delete()
 
 lisst.reverse()
 
-lisst.read()
+lisst.read_list()
