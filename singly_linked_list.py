@@ -32,7 +32,7 @@ class LinkedList:
             current = current.next_node_ref
         return None
     
-    def find_last_but_one(self):
+    def _find_last_but_one(self):
         if self.head is None or self.head.next_node_ref is None:
             return None
         current = self.head
