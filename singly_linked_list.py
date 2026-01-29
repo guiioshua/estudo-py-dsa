@@ -9,6 +9,9 @@ class LinkedList:
         self.tail = None
 
     def read_list(self):
+        if self.head is None:
+            print("List is empty")
+            return
         current = self.head
         while current is not self.tail:
             print(f'{current.value}\n| ')
@@ -18,8 +21,7 @@ class LinkedList:
     def append(self, value):
         new_node = Node(value)
         if self.head is None:
-            self.head = new_node
-            self.tail = new_node
+            self.head = self.tail = new_node
         else:
             self.tail.next_node_ref = new_node
             self.tail = new_node
@@ -31,49 +33,54 @@ class LinkedList:
                 return current
             current = current.next_node_ref
         return None
-    
-    def _find_last_but_one(self):
+
+    def _find_predecessor(self, value):
         if self.head is None or self.head.next_node_ref is None:
             return None
         current = self.head
-        while current.next_node_ref is not self.tail:
+        while current.next_node_ref is not None:
+            if current.next_node_ref.value == value:
+                return current
             current = current.next_node_ref
-        return current
-
-    def delete(self):
+        return None
+    
+    def delete(self, value):
         if self.head is None:
             return
-        if self.head == self.tail:
-            self.head = self.tail = None
-        new_tail = self.find_last_but_one()
-        new_tail.next_node_ref = None
-        self.tail = new_tail
+        if self.head.value == value:
+            if self.head == self.tail:
+                self.head = self.tail = None
+            else:
+                self.head = self.head.next_node_ref
+            return
 
+        predecessor = self._find_predecessor(value)        
+        if predecessor:
+            target = predecessor.next_node_ref
+            predecessor.next_node_ref = target.next_node_ref
+            if target == self.tail:
+                self.tail = predecessor
+    
     def reverse(self):
         current = self.head
         if current is None or current.next_node_ref is None:
-            return
+            return       
         previous = None
         while current is not None:
-
             next_node = current.next_node_ref
             current.next_node_ref = previous
             previous = current
             current = next_node
+            
         self.tail = self.head
         self.head = previous
-        
 
 lisst = LinkedList()
 
-lisst.append(5)
-lisst.append(6)
-lisst.append(7)
-lisst.append(8)
-lisst.append(9)
-lisst.append(10)
+for i in range(5, 11):
+    lisst.append(i)
 
-lisst.delete()
+lisst.delete(7)
 
 lisst.reverse()
 
