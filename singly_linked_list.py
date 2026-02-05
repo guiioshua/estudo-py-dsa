@@ -75,13 +75,15 @@ class LinkedList:
         self.tail = self.head
         self.head = previous
 
-lisst = LinkedList()
 
-for i in range(5, 11):
-    lisst.append(i)
+if __name__ == '__main__':
+    lisst = LinkedList()
 
-lisst.delete(7)
+    for i in range(5, 11):
+        lisst.append(i)
 
-lisst.reverse()
+    lisst.delete(7)
 
-lisst.read_list()
+    lisst.reverse()
+
+    lisst.read_list()
