@@ -20,27 +20,29 @@ class Stack:
     
     def is_empty(self):
         return not bool(self.head)
-    
-stack = Stack()
 
-print(stack.is_empty())
 
-stack.push(5)
-stack.push(6)
-stack.push(7)
-stack.push(8)
-stack.push(9)
-print(stack.peek())
+if __name__ == '__main__':    
+    stack = Stack()
 
-stack.pop()
-print(stack.peek())
+    print(stack.is_empty())
 
-print(stack.is_empty())
+    stack.push(5)
+    stack.push(6)
+    stack.push(7)
+    stack.push(8)
+    stack.push(9)
+    print(stack.peek())
 
-stack.pop()
-stack.pop()
-stack.pop()
-stack.pop()
+    stack.pop()
+    print(stack.peek())
 
-print(stack.is_empty())
-print(stack.peek())
+    print(stack.is_empty())
+
+    stack.pop()
+    stack.pop()
+    stack.pop()
+    stack.pop()
+
+    print(stack.is_empty())
+    print(stack.peek())

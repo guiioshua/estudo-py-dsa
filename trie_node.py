@@ -31,16 +31,17 @@ class Trie:
             else:
                 return False
         return True
-    
-trie = Trie()
 
 
-trie.insert('bananaa')
-trie.insert('maçã')
-trie.insert('pera')
+if __name__ == '__main__':    
+    trie = Trie()
 
-print(trie.contains('ban'))
-print(trie.search('banana'))
-print(trie.search('pe'))
-print(trie.search('maçana'))
 
+    trie.insert('bananaa')
+    trie.insert('maçã')
+    trie.insert('pera')
+
+    print(trie.contains('ban'))
+    print(trie.search('banana'))
+    print(trie.search('pe'))
+    print(trie.search('maçana'))

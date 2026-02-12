@@ -28,27 +28,29 @@ class Queue:
     
     def is_empty(self):
         return not bool(self.head)
-    
-queue = Queue()
 
-print(queue.is_empty())
 
-queue.enqueue(5)
-queue.enqueue(6)
-queue.enqueue(7)
-queue.enqueue(8)
-queue.enqueue(9)
+if __name__ == '__main__':    
+    queue = Queue()
 
-print(queue.front())
-queue.dequeue()
-print(queue.front())
-queue.dequeue()
-print(queue.front())
-queue.dequeue()
-print(queue.front())
-queue.dequeue()
-print(queue.front())
-queue.dequeue()
+    print(queue.is_empty())
 
-print(queue.is_empty())
-print(queue.front())
+    queue.enqueue(5)
+    queue.enqueue(6)
+    queue.enqueue(7)
+    queue.enqueue(8)
+    queue.enqueue(9)
+
+    print(queue.front())
+    queue.dequeue()
+    print(queue.front())
+    queue.dequeue()
+    print(queue.front())
+    queue.dequeue()
+    print(queue.front())
+    queue.dequeue()
+    print(queue.front())
+    queue.dequeue()
+
+    print(queue.is_empty())
+    print(queue.front())
